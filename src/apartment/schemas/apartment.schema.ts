@@ -20,7 +20,8 @@ export class Apartment {
   @Prop({required: true, min: 1})
   price: number;
 
-  @Prop({required: true, maxlength: 998})
+  // Made description property optional to correspond frontend task requirements
+  @Prop({maxlength: 998})
   description: string;
 }
 
