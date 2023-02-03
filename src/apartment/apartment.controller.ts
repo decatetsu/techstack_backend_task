@@ -12,6 +12,7 @@ export class ApartmentController {
   }
 
   @Get()
+  @UseFilters(new CastNotFoundErrorFilter())
   async findAll(@Query() getApartmentOptionsDto: GetApartmentOptionsDto) {
     return this.apartmentService.findAll(getApartmentOptionsDto);
   }

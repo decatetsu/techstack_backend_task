@@ -31,7 +31,18 @@ export class ApartmentService implements OnModuleInit {
           price: 150,
           rooms: 2
         },
-        {name: 'VIP Apartment 1', description: 'It\'s a VIP apartment with all benefits.', price: 1500, rooms: 2},
+        {
+          name: 'VIP Apartment 1',
+          description: 'It\'s a VIP apartment with all benefits.',
+          price: 1500,
+          rooms: 2
+        },
+        {
+          name: 'VIP Apartment 2',
+          description: 'It\'s a VIP apartment with all benefits.',
+          price: 3000,
+          rooms: 4
+        },
       ];
 
       seedData.forEach(apartment => this.create(apartment));
@@ -50,8 +61,8 @@ export class ApartmentService implements OnModuleInit {
       const {price, rooms} = getApartmentOptionsDto;
       const price_num = price === 'asc' ? 1 : (price === 'desc' ? -1 : 0);
 
-      if (typeof (rooms) === 'number') apartments.find({rooms: rooms});
-      if (price_num) apartments.sort({price: price_num});
+      if (rooms) apartments = apartments.find({rooms: rooms});
+      if (price_num) apartments = apartments.sort({price: price_num});
     }
 
     return apartments;
